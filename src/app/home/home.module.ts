@@ -6,14 +6,17 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
+import { CitySearchComponent } from './city-search/city-search.component';
+import { CurrentWeatherComponent } from './current-weather/current-weather.component';
+import { ForecastComponent } from './forecast/forecast.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    HomePageRoutingModule
+  imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
+  declarations: [
+    HomePage,
+    CitySearchComponent,
+    CurrentWeatherComponent,
+    ForecastComponent,
   ],
-  declarations: [HomePage]
 })
 export class HomePageModule {}

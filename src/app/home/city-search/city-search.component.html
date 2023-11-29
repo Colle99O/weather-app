@@ -1,0 +1,37 @@
+<div class="city-search">
+  <form (submit)="onSubmit($event)" class="city-search__search">
+    <input
+      type="search"
+      class="city-search__input"
+      placeholder="Wyszukaj miasto"
+      [(ngModel)]="query"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      (input)="onChange()"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <ion-icon name="search-outline" class="city-search__icon" />
+  </form>
+
+  <div *ngIf="showAutoComplete" class="city-search__autocomplete">
+    <ul *ngIf="autoCompleteItems.length" class="city-search__autocomplete-list">
+      <li
+        *ngFor="let item of autoCompleteItems"
+        class="city-search__autocomplete-item"
+      >
+        <button
+          (click)="onItemSelect(item)"
+          class="city-search__autocomplete-btn"
+        >
+          {{ item.name }}
+        </button>
+      </li>
+    </ul>
+    <div
+      *ngIf="!autoCompleteItems.length"
+      class="city-search__autocomplete-err"
+    >
+      Brak wyników.
+    </div>
+  </div>
+</div>
